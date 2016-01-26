@@ -1108,7 +1108,7 @@ getSuperViewInput ()
   read -p "${XYC_SELECT_OPTION}: 0-4: " REPLY
   case $REPLY in 
     0) unset SVIEW RES FPS; return;;
-    1) SVIEW="1080p@60"; RES=3; FPS=2;;
+    1) SVIEW="1080p@30"; RES=3; FPS=2;;
     2) SVIEW="1080p@60"; RES=3; FPS=4;;
     3) SVIEW="1296p@30"; RES=3; FPS=2;;
     4) SVIEW="1440p@30"; RES=3; FPS=2;;

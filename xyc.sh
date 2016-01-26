@@ -1099,17 +1099,19 @@ getSuperViewInput ()
   clear
   echo " ************ ${XYC_SUPERVIEW} ************ "
   echo " * (0) ${XYC_DISABLE}                     * "
-  echo " * (1) 1920x1080 60 FPS            * "
-  echo " * (2) 2304x1296 30 FPS            * "
-  echo " * (3) 2560x1440 30 FPS            * "
+  echo " * (1) 1920x1080 30 FPS            * "
+  echo " * (2) 1920x1080 60 FPS            * "
+  echo " * (3) 2304x1296 30 FPS            * "
+  echo " * (4) 2560x1440 30 FPS            * "
   echo " *********************************** "
   local REPLY=$SVIEW
-  read -p "${XYC_SELECT_OPTION}: 0-3: " REPLY
+  read -p "${XYC_SELECT_OPTION}: 0-4: " REPLY
   case $REPLY in 
     0) unset SVIEW RES FPS; return;;
-    1) SVIEW="1080p@60"; RES=3; FPS=4;;
-    2) SVIEW="1296p@30"; RES=3; FPS=2;;
-    3) SVIEW="1440p@30"; RES=3; FPS=2;;
+    1) SVIEW="1080p@60"; RES=3; FPS=2;;
+    2) SVIEW="1080p@60"; RES=3; FPS=4;;
+    3) SVIEW="1296p@30"; RES=3; FPS=2;;
+    4) SVIEW="1440p@30"; RES=3; FPS=2;;
   esac
   setRESView
 }

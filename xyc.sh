@@ -724,6 +724,8 @@ parseExistingAutoexec ()
   grep -q "writel 0xC05C2CB4 0x05A00A00" $AASH 2>/dev/null
   if [ $? -eq 0 ]; then RES=6; FPS=2; fi
 
+  grep -q "writel 0xC05C2D90 0x04380780" $AASH 2>/dev/null
+  if [ $? -eq 0 ]; then SVIEW="1080p@30"; fi
   grep -q "writel 0xC05C2D7C 0x04380780" $AASH 2>/dev/null
   if [ $? -eq 0 ]; then SVIEW="1080p@60"; fi
   grep -q "writel 0xC05C2D90 0x05100900" $AASH 2>/dev/null
@@ -1750,7 +1752,9 @@ writeAutoexec ()
 
   if [ -n "$SVIEW" ]; then 
     echo "#stretch SuperView $SVIEW" >> $OUTFILE
-    if [ "$SVIEW" == "1080p@60" ]; then
+    if [ "$SVIEW" == "1080p@30" ]; then
+      echo "writel 0xC05C2D90 0x04380780" >> $OUTFILE
+    elif [ "$SVIEW" == "1080p@60" ]; then
       echo "writel 0xC05C2D7C 0x04380780" >> $OUTFILE
     elif [ "$SVIEW" == "1296p@30" ]; then
       echo "writel 0xC05C2D90 0x05100900" >> $OUTFILE
